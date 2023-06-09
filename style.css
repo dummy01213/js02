@@ -1,0 +1,220 @@
+:root {
+    --background-color: rgb(5, 12, 24);
+    --border-color: rgb(255, 255, 255, 0.1);
+    --highlight-color: rgb(126, 87, 194);
+    --yt-color: rgb(229, 57, 53);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+p,
+a,
+span {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--highlight-color)
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav>.nav-section {
+    padding: 3rem 2rem;
+    display: flex;
+    gap: 1rem;
+    border-left: 1px solid var(--border-color);
+    align-items: center;
+    justify-content: center;
+}
+
+#nav-logo-section,
+#nav-link-section {
+    /* width: calc(100% / 3); */
+    flex-basis: calc(100% / 3);
+}
+
+#nav-logo-section {
+    justify-content: flex-start;
+    font-size: 2rem;
+}
+
+#nav-link-section {
+    /* flex-basis: 50%; */
+    gap: 6rem;
+}
+
+#nav-social-section {
+    flex-basis: 20%;
+    gap: 3rem;
+}
+
+.article-link {
+    color: var(--highlight-color)
+}
+
+.article-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.youtube-logo {
+    display: inline;
+    color: var(--yt-color)
+}
+
+.youtube-logo:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+main {
+    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+main article {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transition: transform 400ms ease;
+}
+
+main article[data-status="inactive"] {
+    transform: translateX(-100%);
+    display: none;
+    transition: none;
+}
+
+main article[data-status="active"] {
+    transform: translateX(0%);
+}
+
+main article[data-status="before"] {
+    transform: translateX(-100%);
+}
+
+main article[data-status="after"] {
+    transform: translateX(100%);
+}
+
+main article[data-status="becoming-active-from-before"] {
+    transform: translateX(-100%);
+    transition: none;
+}
+
+main article[data-status="becoming-active-from-after"] {
+    transform: translateX(100%);
+    transition: none;
+}
+
+.article-section {
+    border: 1px solid var(--border-color);
+    display: flex;
+    height: 100%;
+}
+
+main article:first-child>.article-image-section {
+    background-image: url("https://images.unsplash.com/photo-1508161773455-3ada8ed2bbec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80");
+}
+
+main article:nth-child(2)>.article-image-section {
+    background-image: url("https://images.unsplash.com/photo-1558172475-3e1101f862f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80");
+}
+
+main article:nth-child(3)>.article-image-section {
+    background-image: url("https://images.unsplash.com/photo-1584448097764-374f81551427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80");
+}
+
+main article:nth-child(4)>.article-image-section {
+    background-image: url("https://images.unsplash.com/photo-1519564463853-62962823fb39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1333&q=80");
+}
+
+.article-image-section {
+    background-position: center;
+    background-size: cover;
+}
+
+.article-description-section {
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.8rem 3rem;
+}
+
+.article-description-section>p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.4em;
+}
+
+.article-title-section {
+    /* display: flex; */
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.article-title-section>h2 {
+    font-size: 4rem;
+    font-family: "Montserrat", sans-serif;
+    flex-basis: 50%;
+    line-height: 3rem;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+.article-title-section>svg {
+    font-size: 4rem;
+    color: rgb(255, 255, 255, 0.5)
+}
+
+.article-nav-section {
+    display: flex;
+    justify-content: center;
+}
+
+.article-nav-section>button {
+    flex-basis: 50%;
+    font-size: 4rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(255, 255, 255, 0.5)
+}
+
+.article-nav-section>button:hover {
+    background-color: rgb(255, 255, 255, 0.02);
+}
+
+.article-nav-section>button:first-child {
+    border: 1px solid var(--border-color);
+}
